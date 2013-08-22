@@ -1,0 +1,38 @@
+<%- model_class = @vendor.class -%>
+<h1><%=t '.title', :default => model_class.model_name.human %></h1>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:vendor_name) %>:</strong></dt>
+  <dd><%= @vendor.vendor_name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:vendor_address) %>:</strong></dt>
+  <dd><%= @vendor.vendor_address %></dd>
+</dl>
+
+products->show
+
+
+<%- model_class = @product.class -%>
+<%#<%- model_class = @vendor.class -%>
+<h1><%=t '.title', :default => model_class.model_name.human %></h1>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:product_name) %>:</strong></dt>
+  <dd><%= @product.product_name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:btch_no) %>:</strong></dt>
+  <dd><%= @product.btch_no %></dd>
+ 
+  <dt><strong><%= model_class.human_attribute_name(:vendor) %>:</strong></dt>
+  <dd><%= link_to @product.vendor_id, vendor_path(@vendor) %></dd>
+ 
+  <dt><strong><%= model_class.human_attribute_name(:mfd_on) %>:</strong></dt>
+  <dd><%= @product.mfd_on %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:expired_on) %>:</strong></dt>
+  <dd><%= @product.expired_on %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:cost_price) %>:</strong></dt>
+  <dd><%= @product.cost_price %></dd>
+</dl>
+
+
+
+
+

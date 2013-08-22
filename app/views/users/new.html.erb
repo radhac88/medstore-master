@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+<h1>Sign Up </h1>
+<%= form_for @user do |f| %>
+	<% if @user.errors.any? %>
+	<div class="error_messages">
+		<h3>Form is invalid</h3>
+		<ul>
+			<% for message in @user.errors.full_messages %>
+			<li><%= message %></li>
+			<% end %>
+		</ul>
+	</div>
+	<% end %>
+
+<p>
+	<%= f.label :name %>
+	<%= f.text_field :name %>
+	<%= f.label :email %>
+	<%= f.text_field :email %>
+	<%= f.label :password %>
+	<%= f.password_field :password %>
+	<%= f.label :password_confirmation %>
+	<%= f.password_field :password_confirmation %>
+</p>
+<%#<p class="input"><%= f.submit %>
+<%= f.submit "Comment", :type => :image, :src => "/register.jpg" %>
+<% end %>

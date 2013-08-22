@@ -1,0 +1,27 @@
+
+<table>
+<tr><td><b>Vendor Name:  &nbsp; </b></td>
+<td><%= @vendor.vendor_name %></td></tr>
+<tr><td><b>Vendor Address:  &nbsp; </b></td>
+<td><%= @vendor.vendor_address %></td></tr>
+<tr><td><b>Products:  &nbsp; </b></td>
+<td>      
+
+<% @vendor.products.each do |product| %>
+<%= link_to product.product_name, products_path() %>,&nbsp;
+<% end %>
+
+</td></tr>
+</table>
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              vendors_path, :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_vendor_path(@vendor), :class => 'btn' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              vendor_path(@vendor),
+              :method => 'delete',
+              :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
+              :class => 'btn' %>
+</div>
+

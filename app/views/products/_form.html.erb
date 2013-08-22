@@ -1,0 +1,52 @@
+<%= simple_form_for @product, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label :product_name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :product_name, :class => 'text_field' %><span class="help-inline"></span>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :btch_no, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :btch_no, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :vendor, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.collection_select :vendor_id,Vendor.order(:vendor_name),:id,:vendor_name, :class => 'collection_select' %>
+    <%#<select name="product[vendor_id]">
+    <%#<% Vendor.all.each do |vendor| %>
+    <%# <option value="<%= vendor.id %>  <%#"> <%= vendor.vendor_name %></option>
+    <%#<% end %>
+
+</select>
+
+
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :mfd_on, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.date_select :mfd_on, :class => 'date_select' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :expired_on, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.date_select :expired_on, :class => 'date_select' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :cost_price, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :cost_price, :class => 'text_field' %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                products_path, :class => 'btn' %>
+  </div>
+<% end %>

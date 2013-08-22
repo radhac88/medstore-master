@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  batch_number: MyString
+  vendor_id: 1
+  manufactured_on: 2013-06-11
+  expired_on: 2013-06-11
+  cost_price: 1.5
+
+two:
+  name: MyString
+  batch_number: MyString
+  vendor_id: 1
+  manufactured_on: 2013-06-11
+  expired_on: 2013-06-11
+  cost_price: 1.5

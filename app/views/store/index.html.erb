@@ -1,0 +1,26 @@
+<% if notice %>
+<p id="notice" ><%= notice %></p>
+<% end %>
+<h3>Your Medicine Catalog</h3>
+<table>
+<th>Name</th>
+<th></th>
+<th>Expiry date</th>
+<th></th>
+<th>Cost Price</th>
+<th></th>
+<th></th>
+<% @products.each do |product| %>
+
+<%#<%= image_tag(product.image_url) %>
+<tr><td>
+<%= product.product_name %> </td>
+<td> &nbsp;&nbsp;&nbsp;</td>
+<%#<%= sanitize(product.description) %>
+<td>
+<%= product.expired_on %> </td><td>&nbsp;&nbsp;&nbsp;</td>
+
+<td>INR <%= product.cost_price %></td>
+<td style="padding-top:20px;"><%= button_to 'Add to cart', line_items_path(:product_id => product), :class => 'btn btn-mini' %></td></tr>
+<% end %>
+</table>

@@ -1,0 +1,81 @@
+
+<%- model_class = Product.new.class -%>
+<%- model_class = Vendor.new.class -%>
+<h4 align="left"><%= "Products" %></h4>
+
+<%# search form............................................................... %>
+
+<div style="float:right" class="input-append">
+<%= form_for Product.new, :url => "search_results" do |f| %>
+<%= f.text_field :product_name, :class => "span8" %>
+<%= f.submit "Search", :class => "btn btn-inverse" %>
+<%#<%= f.submit"search" do %>
+<%#<i class="icon-search"></i> <% end %>
+<% end %>
+</div>
+
+<%# Delete all products checkbox............................................... %>
+
+<%= form_tag delete_product_path, method: :delete do %>
+<table class="table table-striped">
+  <thead>
+    <tr>  
+      <th><%= "select" %>
+      <th><%= model_class.human_attribute_name("Name") %></th>
+      <th><%= model_class.human_attribute_name("Batch No") %></th>
+     <%#<th><%= model_class.human_attribute_name("vendor id") %>
+      <th><%= model_class.human_attribute_name("Manufacture date") %></th>
+      <th><%= model_class.human_attribute_name("Expire date") %></th>
+      <th><%= model_class.human_attribute_name("Price") %></th>
+
+     <%# <th><%= model_class.human_attribute_name(:created_at) %></th> 
+      <th><%=t '.actions', :default => t("helpers.action") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% for product in @products %>
+      <tr>
+        <td><%= check_box_tag 'product_ids[]',product.id %></td>
+        <td><%= link_to product.product_name, product_path(product) %></td>
+        <td><%= product.btch_no %></td>
+        <%#<td><%= link_to product.vendor_id, vendor_path(product) %>
+        <td><%= product.mfd_on %></td>
+        <td><%= product.expired_on %></td>
+        <td><%= product.cost_price %></td>
+        <%#<td><%=l product.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_product_path(product), :class => 'btn btn-mini' %>
+
+          <%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' }, :remote => true, :class => 'delete_prodct' %>
+                      
+                      
+       </td>           
+      </tr>
+
+    <% end %>
+    
+    <%= submit_tag 'Delete selected',:confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')), :class => 'btn btn-small', method: :delete,:remote => true %>
+
+    &nbsp;
+    <%= link_to t('.new', :default => t("helpers.links.new")),
+            new_product_path,
+            :class => 'btn btn-small' %>
+
+    </tbody>
+    </table>
+    <%= image_submit_tag("/delete.jpg") %>  
+
+  <%#  <%= submit_tag 'Delete selected',:confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')), :class => 'btn btn-small, delete_prodct', :remote => true %>    
+    &nbsp;
+
+   <%# <%= link_to t('.new', :default => t("helpers.links.new")),
+            new_product_path,
+            :class => 'btn btn-small' %>
+
+<%= link_to image_tag("/new.jpg"), new_product_path %>            
+
+
+    <% end %>
+  
+<div class="pagination pagination-centered"><%= paginate @products %></div>
