@@ -44,10 +44,13 @@
         <td><%= product.cost_price %></td>
         <%#<td><%=l product.created_at %></td>
         <td>
-          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+          <%#<%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_product_path(product), :class => 'btn btn-mini' %>
 
-          <%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' }, :remote => true, :class => 'delete_prodct' %>
+          <%= link_to image_tag("/pencil.png"),edit_product_path(product) %>
+
+          <%#<%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' }, :remote => true, :class => 'delete_prodct' %>
+          <%= link_to image_tag("/delete-icon.gif"),product, method: :delete, data: { confirm: 'Are you sure?' }, :remote => true, :class => 'delete_prodct' %>
                       
                       
        </td>           

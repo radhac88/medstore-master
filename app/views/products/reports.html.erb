@@ -13,8 +13,8 @@
 		<% end %>
 </div>
 <div style="height:300px;width:30%;float:right;">
-	<h5>Products expire in 30 days: ( <%= @exproduct.count %> )</h5><br/>
-	<% @exproduct.last(5).each do |p| %>
+	<h5>Products expiration days:</h5><br/>
+	<% @products.each do |p| %>
 	<% if (p.expired_on-Date.today).to_i <= 0 %>
 	<li><%= link_to p.product_name, product_path(p)  %>&nbsp;
 	(expired <%= (p.expired_on-Date.today).to_i %>&nbsp;days ago)</li><br />
