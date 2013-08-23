@@ -1,0 +1,4 @@
+<% for user in @users %>
+<li><%= user.name %>&nbsp;
+<%= link_to image_tag("/delete-icon.gif"),user, method: :delete, data: { confirm: 'Are you sure?' }, :remote => true %></li>
+<% end %>

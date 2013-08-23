@@ -11,6 +11,7 @@ Medstore::Application.routes.draw do
 
   get "log_in" => "sessions#new", :as => "log_in"
   get "sign_up" => "users#new", :as => "sign_up"
+  get "user_list" => "users#index", :as => "user_list"
   get "log_out" => "sessions#destroy"
   resources :sessions
   resources :users

@@ -5,7 +5,8 @@ class User < ActiveRecord::Base
 
   validates_confirmation_of :password
   validates_presence_of :password, :on => :create
-  validates_presence_of :email
+  #validates_presence_of :email
+  validates :email ,format:{with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i , message: "in invalid format" }
 
   def encrypt_password
   	if password.present?
