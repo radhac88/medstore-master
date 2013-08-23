@@ -3,7 +3,7 @@ class ProductsController < ApplicationController
   # GET /products.json
   #add_breadcrumb "Home", "/products/home"
   http_basic_authenticate_with :name=>"admin", :password=>"admin"
-  add_breadcrumb "Browse products", "/products", except: [:home,:reports,:welcome]
+  add_breadcrumb "Browse products", "/products", except: [:home,:reports,:welcome,:index]
   add_breadcrumb "New Product", "/products/new", only: [:new, :create]
   add_breadcrumb "Edit Product", "/products/edit", only: [:edit]
   add_breadcrumb "Product","", only: [:show]
@@ -146,14 +146,20 @@ class ProductsController < ApplicationController
      #@product = Product.where(params[:id])
      #@product = Product.all
      #@product.delete(params[:product_id])
-
-     @products = Product.find(params[:product_ids])
+     begin
+        @products = Product.find(params[:product_ids])
+     rescue ActiveRecord::RecordNotFound
+        logger.error "No products selected to delete"
+        redirect_to products_url, :notice=> "Please select products to delete!!"
+      else
      @products.each do |product|    
      product.delete
      flash[:alert] = "Selected products deleted successfully.."
      end
+
      respond_to do |format|
         format.html {redirect_to products_url}
      end
+   end
     end
 end

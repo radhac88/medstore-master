@@ -1,27 +1,21 @@
-
 <h3>Your medicine cart</h3>
 <table>
 	<% @cart.line_items.each do |item| %>
 	<tr>
-
 		<td><%= item.quantity %> &times;</td>
 		<td><%= item.product.product_name %></td>
-		<td>&nbsp;</td>
+		<td>&nbsp;&nbsp;&nbsp;</td>
 		<td><%= item.total_price %></td>
-	<% end %>
-
-	<tr align="right">
-		<td></td>
-		<td colspan="2"><b>Total&nbsp;&nbsp;</b></td>
-		<td><b><%= @cart.total_price %></b></td>
 	</tr>
+	<% end %>
+	<tr>
+		<td></td>
+		<td colspan="1"><b>Total&nbsp;&nbsp;</b></td>
+		<td>&nbsp;</td>
+		<td><b><%= @cart.total_price %></b></td>
+<td><%= link_to 'Add more', store_url, :class => 'btn btn-mini' %></td></tr>
 
-
-
-<tr>
-<td><%= link_to 'Add more', store_url, :class => 'btn btn-mini' %> </td>
-
-<td align="center"><%= link_to 'empty cart', @cart, :method => :delete, :confirm=> 'Are you sure?', :class => 'btn btn-mini' %></td>
-<td align="right"><%= link_to 'Pay', @cart, :class => 'btn btn-mini' %> </td>
+<tr><td><%= link_to 'empty cart', @cart, :method => :delete, :confirm=> 'Are you sure?', :class => 'btn btn-mini' %></td>
+<td align="right"><%= link_to 'Pay', @cart, :class => 'btn btn-mini' %></td>
 </tr>
 </table>

@@ -1,6 +1,6 @@
-<% if notice %>
-<p id="notice" ><%= notice %></p>
-<% end %>
+<%#<% if notice %>
+<%#<p id="notice" ><%= notice %></p>
+<%#<% end %>
 <h3>Your Medicine Catalog</h3>
 <table>
 <th>Name</th>
@@ -21,6 +21,8 @@
 <%= product.expired_on %> </td><td>&nbsp;&nbsp;&nbsp;</td>
 
 <td>INR <%= product.cost_price %></td>
-<td style="padding-top:20px;"><%= button_to 'Add to cart', line_items_path(:product_id => product), :class => 'btn btn-mini' %></td></tr>
+<td style="padding-top:10px;padding-left:10px;"><p><%= button_to 'Add to cart', line_items_path(:product_id => product), :class => 'btn btn-mini' %></p></td>
+<td style="padding-top:5px;"><%= image_tag("/cart.gif") %></td>
+</tr>
 <% end %>
 </table>
