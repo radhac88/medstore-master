@@ -1,3 +1,17 @@
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+  <link rel="stylesheet" href="/resources/demos/style.css" />
+<script>
+  $(function() {
+    $("#mfd_on").datepicker({dateFormat: "dd-mm-yy"});
+  });
+  $(function() {
+    $("#expired_on").datepicker({dateFormat: "dd-mm-yy"});
+  });
+</script>
+
+
 <%= simple_form_for @product, :html => { :class => 'form-horizontal' } do |f| %>
   <div class="control-group">
     <%= f.label :product_name, :class => 'control-label' %>
@@ -28,13 +42,18 @@
   <div class="control-group">
     <%= f.label :mfd_on, :class => 'control-label' %>
     <div class="controls">
-      <%= f.date_select :mfd_on, :class => 'date_select' %>
+      <%#<%= f.date_select :mfd_on, :class => 'date_select' %>
+      <%= f.text_field :mfd_on, :id => "mfd_on" %>
+
     </div>
   </div>
   <div class="control-group">
     <%= f.label :expired_on, :class => 'control-label' %>
     <div class="controls">
-      <%= f.date_select :expired_on, :class => 'date_select' %>
+      <%#<%= f.date_select :expired_on, :class => 'date_select' %>
+      <%#<%= f.date_select :expired_on, :id => "expired_on" %>
+      <%= f.text_field :expired_on, :id => "expired_on" %>
+
     </div>
   </div>
   <div class="control-group">
