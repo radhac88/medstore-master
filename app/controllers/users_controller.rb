@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   
-  before_filter :verify_user, :except=>"new"
+  before_filter :verify_user, :except=>["new","create"]
 
   def verify_user
     if session[:user_id].nil? then

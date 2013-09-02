@@ -1,5 +1,35 @@
+<%#
+<sstyle type="text/css">
+#kulfi1
+{
+  position: static;
+  width: 250px;
+  height: 100px;
+  /*left: 50%;
+  /*top: 0%;
+  /*margin-left: -300px; /*half the width*/ 
+}
 
+#kulfi2
+{
+  position: static;
+  width: 250px;
+  height: 100px;
+  /*left: 50%;
+  /*top: 0%;
+  /*margin-left: -300px; /*half the width*/ 
+}
 
+#kulfi3
+{
+  position: static;
+  width: 250px;
+  height: 100px;
+  /*left: 50%;
+  /*top: 0%;
+  /*margin-left: -300px; /*half the width*/ 
+}
+</style>
 
 <%# Images carousel display................................................... %>
 
@@ -49,9 +79,10 @@
 
 
     <div class="row-fluid">
-      <div class="span4">
+      <div class="span4" style="border-radius:10px;background-color:gray" id="kulfi1">
           <pre style="background-color:#ffffff;"><b style="font-family:'tempus sans itc';color:indigo;">Latest products</b>
             <table>
+              
             <% @products.last(5).reverse.each do |f| %>
            <tr><td style="padding-right:0px"><%= f.product_name %></td>
            </tr>
@@ -63,9 +94,10 @@
 
 <%# About to expire products.....................................................%>
 
-      <div class="span5">
+      <div class="span5" style="border-radius:10px;background-color:gray" id="kulfi2">
           <pre style="background-color:#ffffff;"><b style="font-family:'tempus sans itc';color:indigo;">About to Expire products</b>
           <table>
+          
           <% @exproduct.last(5).each do |p| %>
          <tr><td align="left"><%= p.product_name %></td>
           <% if (p.expired_on-Date.today).to_i <= 0 %>
@@ -81,9 +113,10 @@
 
 <%# Today's sale..................................................................%>
 
-      <div class="span3">
+      <div class="span3" style="border-radius:10px;background-color:gray" id="kulfi3">
         <pre style="background-color:#ffffff;"><b style="font-family:'tempus sans itc';color:indigo;">Our vendors</b>
         <table>
+          
         <% @vendors.each do |v| %>
         <tr><td><%= v.vendor_name %></td></tr>
         <% end %>

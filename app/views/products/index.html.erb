@@ -1,3 +1,36 @@
+<style type="text/css">
+.newButton{
+background: #0072c6;
+font-family: segoe ui semibold;
+font-weight: normal;
+line-height: 1.357em;
+/*margin-left: 3.57em;*/
+min-width: 5em;
+padding: .214em .857em .36em;
+text-align: center;
+font-size: 100%;
+background-color: #C8C8C8;
+padding: 3px 12px 5px;
+border: 0px;
+}
+.newButton:hover{
+  background-color: #FFFFFF;
+}
+.DeleteSelect{
+  font-family: segoe ui semibold;
+  padding: 3px 12px 5px;
+  font-size: 100%;
+  border: 0px;
+  color: #585858;
+  background-color: #C8C8C8;
+}
+.DeleteSelect:hover {
+background-color: #FFFFFF;
+color: #005580;
+text-decoration: underline;
+}
+</style>
+
 
 <%- model_class = Product.new.class -%>
 <%- model_class = Vendor.new.class -%>
@@ -58,16 +91,17 @@
 
     <% end %>
     
-    <%= submit_tag 'Delete selected',:confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')), :class => 'btn btn-small', method: :delete,:remote => true %>
+    <%= submit_tag 'Delete selected',:confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')), :class => "DeleteSelect", method: :delete,:remote => true %>
 
     &nbsp;
     <%= link_to t('.new', :default => t("helpers.links.new")),
             new_product_path,
-            :class => 'btn btn-small' %>
+            :class => "newButton" %>
 
     </tbody>
     </table>
-    <%= image_submit_tag("/delete.jpg") %>  
+    <%#<%= image_submit_tag("/delete.jpg") %>
+    <%= submit_tag "Delete selected", :class => "DeleteSelect" %>
 
   <%#  <%= submit_tag 'Delete selected',:confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')), :class => 'btn btn-small, delete_prodct', :remote => true %>    
     &nbsp;
@@ -76,8 +110,8 @@
             new_product_path,
             :class => 'btn btn-small' %>
 
-<%= link_to image_tag("/new.jpg"), new_product_path %>            
-
+<%#<%= link_to image_tag("/new.jpg"), new_product_path %>
+<%= link_to "New", new_product_path, :class => "newButton" %>
 
     <% end %>
   

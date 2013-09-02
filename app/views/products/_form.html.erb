@@ -11,24 +11,37 @@
   });
 </script>
 
+<style type="text/css">
+.textBox
+{
+  background-image:url("/calendar_1.png"); 
+  background-position:right; 
+  background-repeat:no-repeat; 
+  padding-left:17px;
+} 
 
-<%= simple_form_for @product, :html => { :class => 'form-horizontal' } do |f| %>
+</style>
+
+
+
+<%= simple_form_for @product, :html => { :class => 'fform-horizontal' } do |f| %>
   <div class="control-group">
-    <%= f.label :product_name, :class => 'control-label' %>
+    <%#<%= f.label :product_name, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :product_name, :class => 'text_field' %><span class="help-inline"></span>
+      <%= f.text_field :product_name,:placeholder=> "Product Name", :class => 'text_field' %>
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :btch_no, :class => 'control-label' %>
+    <%#<%= f.label :btch_no, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :btch_no, :class => 'text_field' %>
+      <%= f.text_field :btch_no,:placeholder=> "Batch Number", :class => 'text_field' %>
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :vendor, :class => 'control-label' %>
+    <%#<%= f.label :vendor, :placeholder=> "Vendor",:class => 'control-label' %>
     <div class="controls">
-      <%= f.collection_select :vendor_id,Vendor.order(:vendor_name),:id,:vendor_name, :class => 'collection_select' %>
+      <%= f.collection_select :vendor_id,Vendor.order(:vendor_name),:id,:vendor_name, :class => 'collection_select',
+      :prompt => 'Select Vendor'%>
     <%#<select name="product[vendor_id]">
     <%#<% Vendor.all.each do |vendor| %>
     <%# <option value="<%= vendor.id %>  <%#"> <%= vendor.vendor_name %></option>
@@ -40,30 +53,31 @@
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :mfd_on, :class => 'control-label' %>
+    <%#<%= f.label :mfd_on, :class => 'control-label' %>
     <div class="controls">
       <%#<%= f.date_select :mfd_on, :class => 'date_select' %>
-      <%= f.text_field :mfd_on, :id => "mfd_on" %>
-
+      <%= f.text_field :mfd_on, :placeholder=> "Manufactured Date", :id => "mfd_on", :class=>'textBox' %>
+      
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :expired_on, :class => 'control-label' %>
+    <div class="input-append">
+    <%#<%= f.label :expired_on, :class => 'control-label' %>
     <div class="controls">
       <%#<%= f.date_select :expired_on, :class => 'date_select' %>
       <%#<%= f.date_select :expired_on, :id => "expired_on" %>
-      <%= f.text_field :expired_on, :id => "expired_on" %>
-
+      <%= f.text_field :expired_on,:placeholder=> "Expired date", :id => "expired_on",:class=>'textBox' %>
     </div>
+  </div>
   </div>
   <div class="control-group">
-    <%= f.label :cost_price, :class => 'control-label' %>
+    <%#<%= f.label :cost_price, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :cost_price, :class => 'text_field' %>
+      <%= f.text_field :cost_price, :placeholder=> "Cost Price",:class => 'text_field' %>
     </div>
   </div>
 
-  <div class="form-actions">
+  <div class="fform-actions">
     <%= f.submit nil, :class => 'btn btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
                 products_path, :class => 'btn' %>

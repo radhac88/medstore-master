@@ -1,5 +1,19 @@
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function()
+{
+	$('#user_password').attr('placeholder', 'Password');
+	
+});
+$(document).ready(function()
+{
+	$('#user_password_confirmation').attr('placeholder', 'Confirm password');
+	
+});
+</script>
+
 <p id="notice"><%= notice %></p>
-<h1>Sign Up </h1>
+<%#<h1>Sign Up </h1> %>
 <%= form_for @user do |f| %>
 	<% if @user.errors.any? %>
 	<div class="error_messages">
@@ -13,15 +27,16 @@
 	<% end %>
 
 <p>
-	<%= f.label :name %>
-	<%= f.text_field :name %>
-	<%= f.label :email %>
-	<%= f.text_field :email %>
-	<%= f.label :password %>
-	<%= f.password_field :password %>
-	<%= f.label :password_confirmation %>
+	<%#<%= f.label :name %>
+	<%= f.text_field :name, :placeholder=>"Name" %><br>
+	<%#<%= f.label :email %>
+	<%= f.text_field :email,:placeholder=>"E-mail" %><br>
+	<%#<%= f.label :password %>
+	<%= f.password_field :password %><br>
+	<%#<%= f.label :password_confirmation %>
 	<%= f.password_field :password_confirmation %>
 </p>
 <%#<p class="input"><%= f.submit %>
-<%= f.submit "Comment", :type => :image, :src => "/register.jpg" %>
+<%#<%= f.submit "Signup", :type => :image, :src => "/signupButton.png" %>
+<%= f.submit "Signup", :id => "signupButton" %>
 <% end %>
