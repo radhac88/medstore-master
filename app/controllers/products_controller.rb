@@ -32,8 +32,8 @@ class ProductsController < ApplicationController
     
     @products=Product.all
 
-    
-    @exproduct = Product.where("expired_on < ?", a+30)
+    @i=0
+    @exproduct = Product.where("expired_on < ?", a+300)
     
     #@rd = params[:product] && params[:product][:expired_on]
     #@remain_days = params[:product][:expired_on]

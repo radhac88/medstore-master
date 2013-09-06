@@ -1,36 +1,20 @@
-<%#
-<sstyle type="text/css">
-#kulfi1
+<style type="text/css">
+
+#round
 {
-  position: static;
-  width: 250px;
-  height: 100px;
-  /*left: 50%;
-  /*top: 0%;
-  /*margin-left: -300px; /*half the width*/ 
+
+-webkit-border-image:url("/frame.jpg") 30 30 round; /* Safari 5 and older */
+-o-border-image:url("/frame.jpg") 30 30 round; /* Opera */
+border-image:url("/frame.jpg") 30 30 round;
 }
 
-#kulfi2
+#stretch
 {
-  position: static;
-  width: 250px;
-  height: 100px;
-  /*left: 50%;
-  /*top: 0%;
-  /*margin-left: -300px; /*half the width*/ 
-}
-
-#kulfi3
-{
-  position: static;
-  width: 250px;
-  height: 100px;
-  /*left: 50%;
-  /*top: 0%;
-  /*margin-left: -300px; /*half the width*/ 
+-webkit-border-image:url(border.jpg) 30 30 stretch; /* Safari 5 and older */
+-o-border-image:url(border.jpg) 30 30 stretch; /* Opera */
+border-image:url(border.jpg) 30 30 stretch;
 }
 </style>
-
 <%# Images carousel display................................................... %>
 
 <div id="myCarousel" class="carousel slide">
@@ -79,8 +63,8 @@
 
 
     <div class="row-fluid">
-      <div class="span4" style="border-radius:10px;background-color:gray" id="kulfi1">
-          <pre style="background-color:#ffffff;"><b style="font-family:'tempus sans itc';color:indigo;">Latest products</b>
+      <div class="span4" id="round">
+          <b style="font-family:'Trebuchet MS';color:indigo;"><%= link_to 'Latest products',reports_path() %></b>
             <table>
               
             <% @products.last(5).reverse.each do |f| %>
@@ -88,17 +72,16 @@
            </tr>
             <% end %>
         </table>
-        <b style="padding-left:140px;"><%= link_to 'more...',reports_path() %></b>
-        </pre>
+        <%#<b style="padding-left:140px;"><%= link_to 'more...',reports_path() %></b>
+        
       </div>
 
 <%# About to expire products.....................................................%>
 
-      <div class="span5" style="border-radius:10px;background-color:gray" id="kulfi2">
-          <pre style="background-color:#ffffff;"><b style="font-family:'tempus sans itc';color:indigo;">About to Expire products</b>
+      <div class="span4" id="round">
+          <b style="font-family:'Trebuchet MS';color:indigo;"><%= link_to 'About to Expire products',reports_path() %></b>
           <table>
-          
-          <% @exproduct.last(5).each do |p| %>
+         <% @exproduct.last(5).each do |p| %>
          <tr><td align="left"><%= p.product_name %></td>
           <% if (p.expired_on-Date.today).to_i <= 0 %>
           <td style="padding-left:40px;" align="right"><%= "expired" %></td><tr/>
@@ -107,21 +90,26 @@
           <% end %>
           <% end %>
       </table>
-      <b style="padding-left:240px;"><%= link_to 'more..',reports_path() %></b>
-      </pre>
+      <%#<b style="padding-left:240px;"><%= link_to 'more..',reports_path() %></b>
+      
       </div>
 
 <%# Today's sale..................................................................%>
 
-      <div class="span3" style="border-radius:10px;background-color:gray" id="kulfi3">
-        <pre style="background-color:#ffffff;"><b style="font-family:'tempus sans itc';color:indigo;">Our vendors</b>
+      <div class="span4" id="round">
+        <b style="font-family:'Trebuchet MS';color:indigo;"><%= link_to 'Our vendors',reports_path() %></b>
         <table>
           
         <% @vendors.each do |v| %>
         <tr><td><%= v.vendor_name %></td></tr>
         <% end %>
+        <% if @vendors.count <4 %>
+        <% for i in 0..(4-@vendors.count)%>
+        <tr><td>&nbsp;</td></tr>
+        <% end %>
+        <%end%>
         </table>
-      </pre>
+      <%#<b style="padding-left:240px;"><%= link_to 'more..',reports_path() %></b>
       </div>
     </div>
 </div>

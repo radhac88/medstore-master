@@ -12,3 +12,27 @@
  *= require_tree .
  *= require bootstrap
  */
+.DeleteSelect:hover {
+background-color: #FFFFFF;
+color: #005580;
+text-decoration: underline;
+}
+.newButton{
+font-family: segoe ui semibold;
+text-align: center;
+font-size: 100%;
+background-color: #C8C8C8;
+padding: 3px 12px 5px;
+border: 0px;
+}
+.newButton:hover{
+  background-color: #FFFFFF;
+}
+.DeleteSelect{
+  font-family: segoe ui semibold;
+  padding: 3px 12px 5px;
+  font-size: 100%;
+  border: 0px;
+  color: #585858;
+  background-color: #C8C8C8;
+}
