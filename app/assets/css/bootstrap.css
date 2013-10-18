@@ -3285,6 +3285,7 @@ input[type="submit"].btn.btn-mini {
   background-color: #000000 \9;
 }
 .breadcrumb {
+  display: none;
   padding: 8px 15px;
   margin: 0 0 20px;
   list-style: none;

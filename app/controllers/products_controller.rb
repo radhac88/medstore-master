@@ -39,6 +39,18 @@ class ProductsController < ApplicationController
     #@remain_days = params[:product][:expired_on]
     @vendors = Vendor.all
 
+    require "rubygems"
+    require "twitter"
+    Twitter.configure do |config|
+      config.consumer_key = 'YKUYyQRL1n6NygTJg499RA'
+      config.consumer_secret =  'ScgsEd17Zi1EPP5dAClETh54bPZ8RQlObthHbVmqBM'
+      config.oauth_token = '401513252-UyYoT9fnFqolfhXSLK7Q46FOF0NFrpoGiJZYfdCK'
+      config.oauth_token_secret = 'LOYXUvWTwA8blVK3yXszQyFUOBjPNu48PVskzXCg'
+    end
+     client = Twitter::Client.new
+     @troy = Twitter.user_timeline("radhac88").first.text
+     @troyy = Twitter.user_timeline("radhac88").second.text
+     @troyyy = Twitter.user_timeline("radhac88").third.text
   end
   def index
     @products = Product.all
