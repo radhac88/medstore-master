@@ -48,9 +48,9 @@ class ProductsController < ApplicationController
       config.oauth_token_secret = 'LOYXUvWTwA8blVK3yXszQyFUOBjPNu48PVskzXCg'
     end
      client = Twitter::Client.new
-     @troy = Twitter.user_timeline("radhac88").first.text
-     @troyy = Twitter.user_timeline("radhac88").second.text
-     @troyyy = Twitter.user_timeline("radhac88").third.text
+     @troy = Twitter.user_timeline("ncbn").first.text
+     @troyy = Twitter.user_timeline("ncbn").second.text
+     @troyyy = Twitter.user_timeline("ncbn").third.text
   end
   def index
     @products = Product.all

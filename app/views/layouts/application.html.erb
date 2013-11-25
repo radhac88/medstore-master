@@ -107,6 +107,8 @@ background-color:#c0c0c0;
               <li><%= link_to "Log In", log_in_path %></li>
           <% end %>
         </ul>
+
+
         </div> 
       </div>
     </div>
@@ -145,9 +147,9 @@ background-color:#c0c0c0;
       <% flash.each do |name,msg| %>
       <%= content_tag :div,msg, :id => "flash#{name}" %>
       <% end %>
- <% if notice %>
-<p id="notice" ><%= notice %></p>
-<% end %>
+ <%#<% if notice %>
+<%#<p id="notice" ><%= notice %><%#</p>
+<%#<% end %>
 
       <%= render_breadcrumbs %>   
 
@@ -166,7 +168,7 @@ background-color:#c0c0c0;
 
     $(document).ready(function() {
         $('.myCarousel').carousel({
-  interval: 2000
+  interval: 4000
   })
 
   });
