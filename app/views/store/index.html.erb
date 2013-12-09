@@ -1,12 +1,15 @@
 <%#<% if notice %>
 <%#<p id="notice" ><%= notice %></p>
 <%#<% end %>
+<style type="text/css">
+</style>
 <h3>Your Medicine Catalog</h3>
+<div class="CSSTableGenerator">
 <table>
 <th>Name</th>
-<th></th>
+<%#<th></th> %>
 <th>Expiry date</th>
-<th></th>
+<%#<th></th>%>
 <th>Cost Price</th>
 <th></th>
 <th></th>
@@ -15,14 +18,17 @@
 <%#<%= image_tag(product.image_url) %>
 <tr><td>
 <%= product.product_name %> </td>
-<td> &nbsp;&nbsp;&nbsp;</td>
+<%#<td> &nbsp;&nbsp;&nbsp;</td> %>
 <%#<%= sanitize(product.description) %>
 <td>
-<%= product.expired_on %> </td><td>&nbsp;&nbsp;&nbsp;</td>
-
+<%= product.expired_on %> </td>
+<%#
+<td>&nbsp;&nbsp;&nbsp;</td>
+%>
 <td>INR <%= product.cost_price %></td>
-<td style="padding-top:10px;padding-left:10px;"><p><%= button_to 'Add to cart', line_items_path(:product_id => product), :class => 'btn btn-mini' %></p></td>
-<td style="padding-top:5px;"><%= image_tag("/cart.gif") %></td>
+<td style="padding-top:10px;padding-left:10px;"><%= button_to 'Add to cart', line_items_path(:product_id => product), :class => 'btn btn-mini' -%><%= image_tag("/cart.gif") %></td>
+<%#<td style="padding-top:5px;"><%= image_tag("/cart.gif") %><%#</td> %>
 </tr>
 <% end %>
 </table>
+</div>

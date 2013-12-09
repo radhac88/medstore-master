@@ -92,7 +92,7 @@ background-color:#c0c0c0;
           <ul class="nav nav-tabs">
             
             <li><%= link_to "Browse Products", products_path %></li>
-             <li><%= link_to "Orders", :controller=>"store",:action=>"index" %></li>
+             <li><%= link_to "Shop", :controller=>"store",:action=>"index" %></li>
           <li><%= link_to "Vendors", vendors_path %></li>
          <li><%= link_to "Report", reports_path %></li>
        </ul>
@@ -130,7 +130,7 @@ background-color:#c0c0c0;
       </td>
     </tr></table>
     </div>
-  </div>
+  </div><br>
     <div class="row-fluid">
       <div class="span2">
        <!--   <h5 align="center" style="font-family:'Trebuchet MS';color:black;padding-top:20px;">locations</h5><br />
@@ -152,12 +152,12 @@ background-color:#c0c0c0;
       </div>
     <div class="span8" style="padding-bottom:30px;">
 
-      <% flash.each do |name,msg| %>
-      <%= content_tag :div,msg, :id => "flash#{name}" %>
-      <% end %>
- <%#<% if notice %>
-<%#<p id="notice" ><%= notice %><%#</p>
-<%#<% end %>
+      <%#<% flash.each do |name,msg| %>
+      <%#<%= content_tag :div,msg, :id => "flash#{name}" %>
+      <%#<% end %>
+ <% if notice %>
+<p id="notice" class="alert alert-success" ><%= notice %></p>
+<% end %>
 
       <%= render_breadcrumbs %>   
 
@@ -168,8 +168,8 @@ background-color:#c0c0c0;
      </div> 
     </div>
 </div>
-<div class="navbar navbar-fixed-bottom navbar-inverse" style="padding-left:450px;background-color:skyblue;color:red">
-  <p style="padding-top:7px;"><a href="" style="color:red">Home</a> | <a href="" style="color:red">Awards</a> | <a href="" style="color:red">Why choose super thrifty</a> | <a href="" style="color:red">Careers</a> | <a href="" style="color:red">Our Team</a> | <a href="" style="color:red">About Us</a> </p>
+<div class="navbar navbar-fixed-bottom navbar-inverse" style="padding-left:450px;background-color:black;color:grey">
+  <p style="padding-top:7px;"><a href="" style="color:grey">Home</a> | <a href="" style="color:grey">Awards</a> | <a href="" style="color:grey">Why choose super thrifty</a> | <a href="" style="color:grey">Careers</a> | <a href="" style="color:grey">Our Team</a> | <a href="" style="color:grey">About Us</a> </p>
 </div>
 
 <script type='text/javascript'>

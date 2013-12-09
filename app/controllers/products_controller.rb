@@ -41,16 +41,16 @@ class ProductsController < ApplicationController
 
     require "rubygems"
     require "twitter"
-    Twitter.configure do |config|
-      config.consumer_key = 'YKUYyQRL1n6NygTJg499RA'
-      config.consumer_secret =  'ScgsEd17Zi1EPP5dAClETh54bPZ8RQlObthHbVmqBM'
-      config.oauth_token = '401513252-UyYoT9fnFqolfhXSLK7Q46FOF0NFrpoGiJZYfdCK'
-      config.oauth_token_secret = 'LOYXUvWTwA8blVK3yXszQyFUOBjPNu48PVskzXCg'
-    end
-     client = Twitter::Client.new
-     @troy = Twitter.user_timeline("ncbn").first.text
-     @troyy = Twitter.user_timeline("ncbn").second.text
-     @troyyy = Twitter.user_timeline("ncbn").third.text
+    # Twitter.configure do |config|
+    #   config.consumer_key = 'YKUYyQRL1n6NygTJg499RA'
+    #   config.consumer_secret =  'ScgsEd17Zi1EPP5dAClETh54bPZ8RQlObthHbVmqBM'
+    #   config.oauth_token = '401513252-UyYoT9fnFqolfhXSLK7Q46FOF0NFrpoGiJZYfdCK'
+    #   config.oauth_token_secret = 'LOYXUvWTwA8blVK3yXszQyFUOBjPNu48PVskzXCg'
+    # end
+    #  client = Twitter::Client.new
+    #  @troy = Twitter.user_timeline("ncbn").first.text
+    #  @troyy = Twitter.user_timeline("ncbn").second.text
+    #  @troyyy = Twitter.user_timeline("ncbn").third.text
   end
   def index
     @products = Product.all

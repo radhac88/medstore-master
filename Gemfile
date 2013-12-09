@@ -10,6 +10,7 @@ gem 'sqlite3'
 gem 'execjs'
 gem 'simple_form'
 gem 'twitter'
+gem 'activeadmin'
 
 # Gems used only for assets and not required
 # in production environments by default.

@@ -1,5 +1,9 @@
 Medstore::Application.routes.draw do
   
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  root :to=>"products#home"
+  ActiveAdmin.routes(self)
+
   resources :line_items
 
 
@@ -20,7 +24,7 @@ Medstore::Application.routes.draw do
    # resources :products do
    #   resources :vendors
    # end
-  root :to=>'products#home'
+  
   #root :to=>'store#index'
   match 'home' => 'products#home', :as => 'home'
   match 'delete_product' => 'products#delete_product', :as => 'delete_product', :via => :delete
