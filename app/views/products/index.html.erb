@@ -27,7 +27,7 @@
       <th><%= "select" %>
       <th><%= model_class.human_attribute_name("Name") %></th>
       <th><%= model_class.human_attribute_name("Batch No") %></th>
-     <%#<th><%= model_class.human_attribute_name("vendor id") %>
+     <th><%= model_class.human_attribute_name("vendor") %>
       <th><%= model_class.human_attribute_name("Manufacture date") %></th>
       <th><%= model_class.human_attribute_name("Expire date") %></th>
       <th><%= model_class.human_attribute_name("Price") %></th>
@@ -42,7 +42,7 @@
         <td><%= check_box_tag 'product_ids[]',product.id %></td>
         <td><%= link_to product.product_name, product_path(product) %></td>
         <td><%= product.btch_no %></td>
-        <%#<td><%= link_to product.vendor_id, vendor_path(product) %>
+        <td><%= link_to product.vendor.vendor_name, vendor_path(product) %>
         <td><%= product.mfd_on %></td>
         <td><%= product.expired_on %></td>
         <td><%= product.cost_price %></td>
